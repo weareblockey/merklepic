@@ -1,0 +1,47 @@
+{
+	"name": "@merklepic/web",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "vite build",
+		"serve": "vite preview",
+		"dev": "vite dev",
+		"check-types": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@aptos-labs/ts-sdk": "^6.2.0",
+		"@aptos-labs/wallet-adapter-react": "^8.3.2",
+		"@merklepic/env": "workspace:*",
+		"@merklepic/ui": "workspace:*",
+		"@shelby-protocol/react": "^1.0.3",
+		"@shelby-protocol/sdk": "^0.2.4",
+		"@tailwindcss/vite": "^4.2.2",
+		"@tanstack/react-query": "^5.91.2",
+		"@tanstack/react-router": "^1.167.5",
+		"@tanstack/react-router-with-query": "^1.130.17",
+		"@tanstack/react-start": "^1.166.18",
+		"@tanstack/router-plugin": "^1.166.14",
+		"buffer": "^6.0.3",
+		"dotenv": "catalog:",
+		"lucide-react": "catalog:",
+		"react": "catalog:",
+		"react-dom": "catalog:",
+		"sonner": "catalog:",
+		"tailwindcss": "catalog:",
+		"vite-tsconfig-paths": "^5.1.4",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@merklepic/config": "workspace:*",
+		"@tanstack/react-router-devtools": "^1.166.9",
+		"@testing-library/dom": "^10.4.1",
+		"@testing-library/react": "^16.3.2",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
+		"@vitejs/plugin-react": "^5.2.0",
+		"jsdom": "^26.1.0",
+		"typescript": "^5.9.3",
+		"vite": "^7.3.1",
+		"web-vitals": "^5.1.0"
+	}
+}

@@ -1,0 +1,227 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@source "../../../apps/**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Pixel Art Dark Theme — dark-only, no light mode */
+:root {
+	--background: oklch(0.1 0.02 280);
+	--foreground: oklch(0.95 0.01 110);
+	--card: oklch(0.16 0.03 280);
+	--card-foreground: oklch(0.95 0.01 110);
+	--popover: oklch(0.14 0.03 280);
+	--popover-foreground: oklch(0.95 0.01 110);
+	--primary: oklch(0.72 0.2 150);
+	--primary-foreground: oklch(0.1 0.02 280);
+	--secondary: oklch(0.22 0.04 280);
+	--secondary-foreground: oklch(0.85 0.01 110);
+	--muted: oklch(0.2 0.03 280);
+	--muted-foreground: oklch(0.6 0.05 280);
+	--accent: oklch(0.26 0.06 290);
+	--accent-foreground: oklch(0.95 0.01 110);
+	--destructive: oklch(0.65 0.25 27);
+	--border: oklch(0.4 0.1 280);
+	--input: oklch(0.2 0.03 280);
+	--ring: oklch(0.72 0.2 150);
+	--radius: 0;
+
+	/* Custom brand tokens */
+	--accent-brand: oklch(0.72 0.2 150);
+	--accent-success: oklch(0.72 0.2 150);
+	--accent-warning: oklch(0.82 0.2 80);
+	--accent-info: oklch(0.65 0.2 240);
+	--accent-hot: oklch(0.7 0.25 330);
+
+	/* Sidebar tokens */
+	--sidebar: oklch(0.12 0.02 280);
+	--sidebar-foreground: oklch(0.95 0.01 110);
+	--sidebar-primary: oklch(0.72 0.2 150);
+	--sidebar-primary-foreground: oklch(0.1 0.02 280);
+	--sidebar-accent: oklch(0.22 0.04 280);
+	--sidebar-accent-foreground: oklch(0.85 0.01 110);
+	--sidebar-border: oklch(0.4 0.1 280);
+	--sidebar-ring: oklch(0.72 0.2 150);
+}
+
+@theme inline {
+	--font-sans: "JetBrains Mono", "Press Start 2P", "VT323", monospace;
+	--font-pixel: "Press Start 2P", monospace;
+	--font-vt: "VT323", monospace;
+	--font-mono: "JetBrains Mono", monospace;
+
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+
+	--color-accent-brand: var(--accent-brand);
+	--color-accent-success: var(--accent-success);
+	--color-accent-warning: var(--accent-warning);
+	--color-accent-info: var(--accent-info);
+	--color-accent-hot: var(--accent-hot);
+
+	--color-sidebar-ring: var(--sidebar-ring);
+	--color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar: var(--sidebar);
+
+	--radius-sm: 0;
+	--radius-md: 0;
+	--radius-lg: 0;
+	--radius-xl: 0;
+	--radius-2xl: 0;
+	--radius-3xl: 0;
+	--radius-4xl: 0;
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+	body {
+		@apply font-sans bg-background text-foreground;
+	}
+	html {
+		@apply font-sans;
+	}
+}
+
+/* Pixel Art Utility Classes */
+@layer utilities {
+	/* CRT scanlines overlay */
+	.scanlines {
+		position: relative;
+		overflow: hidden;
+	}
+	.scanlines::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent 2px,
+			oklch(0 0 0 / 0.08) 2px,
+			oklch(0 0 0 / 0.08) 4px
+		);
+		pointer-events: none;
+		z-index: 10;
+	}
+
+	/* CRT vignette effect */
+	.crt-vignette {
+		position: relative;
+	}
+	.crt-vignette::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(
+			ellipse at center,
+			transparent 60%,
+			oklch(0 0 0 / 0.6) 100%
+		);
+		pointer-events: none;
+		z-index: 5;
+	}
+
+	/* Neon glow effect */
+	.neon-glow {
+		box-shadow:
+			0 0 4px var(--accent-brand),
+			0 0 8px var(--accent-brand),
+			0 0 16px var(--accent-brand);
+	}
+
+	/* Pixel grid background */
+	.pixel-grid {
+		background-image:
+			linear-gradient(oklch(0.4 0.1 280 / 0.15) 1px, transparent 1px),
+			linear-gradient(90deg, oklch(0.4 0.1 280 / 0.15) 1px, transparent 1px);
+		background-size: 8px 8px;
+	}
+}
+
+/* Pixel Art Animations */
+@keyframes pixel-pulse {
+	0%,
+	100% {
+		border-color: var(--border);
+	}
+	50% {
+		border-color: var(--accent-brand);
+	}
+}
+
+@keyframes pixel-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes pixel-blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+@keyframes pixel-success {
+	0% {
+		background-color: oklch(from var(--accent-success) l c h / 0.2);
+	}
+	100% {
+		background-color: transparent;
+	}
+}
+
+/* Apply stepped timing to animations */
+.animate-pixel-pulse {
+	animation: pixel-pulse 0.6s steps(4) infinite;
+}
+
+.animate-pixel-spin {
+	animation: pixel-spin 1s steps(8) linear infinite;
+}
+
+.animate-pixel-blink {
+	animation: pixel-blink 0.8s steps(2) infinite;
+}
+
+.animate-pixel-success {
+	animation: pixel-success 0.6s steps(6) ease-out;
+}
+
+/* Reduce motion: disable animations */
+@media (prefers-reduced-motion: reduce) {
+	.animate-pixel-pulse,
+	.animate-pixel-spin,
+	.animate-pixel-blink,
+	.animate-pixel-success {
+		animation: none;
+	}
+}

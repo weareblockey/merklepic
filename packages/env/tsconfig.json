@@ -1,0 +1,3 @@
+{
+	"extends": "@merklepic/config/tsconfig.base.json"
+}

@@ -1,76 +1,93 @@
-# merklepic
+# MerklePic
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines React, TanStack Start, Self, and more.
+Decentralized image hosting dApp built on **Shelby Protocol + Aptos blockchain**. Fully client-side — no backend required. Your wallet address is your identity.
 
-## Features
+Upload images → Shelby blob storage → Aptos on-chain ownership. Every image is Merkle-verified, tamper-proof, and permanently shareable.
 
-- **TypeScript** - For type safety and improved developer experience
-- **TanStack Start** - SSR framework with TanStack Router
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **Shared UI package** - shadcn/ui primitives live in `packages/ui`
-- **Biome** - Linting and formatting
-- **Turborepo** - Optimized monorepo build system
+## Tech Stack
+
+- **TanStack Start** — Vite + React 19 fullstack framework with file-based routing
+- **Aptos Blockchain** — On-chain image ownership and metadata via wallet transactions
+- **Shelby Protocol** — Decentralized blob storage with Merkle tree verification
+- **Tailwind CSS v4** — Utility-first styling with OKLCh color system
+- **shadcn/ui** — Shared component library (Radix UI primitives)
+- **Biome** — Linting + formatting (replaces ESLint/Prettier)
+- **Turborepo** — Monorepo build orchestration
+- **Bun** — Package manager and runtime
 
 ## Getting Started
 
-First, install the dependencies:
-
 ```bash
 bun install
-```
-
-Then, run the development server:
-
-```bash
 bun run dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the fullstack application.
+Open [http://localhost:3001](http://localhost:3001) in a browser with an Aptos wallet extension (e.g. Petra) installed.
+
+## Monorepo Structure
+
+```
+merklepic/
+├── apps/
+│   └── web/             # Main dApp (TanStack Start, port 3001)
+├── packages/
+│   ├── ui/              # Shared shadcn/ui components and theme
+│   ├── env/             # Type-safe env validation (@t3-oss/env-core)
+│   └── config/          # Shared TypeScript base config
+```
+
+## Available Scripts
+
+All commands run from **repo root** (never cd into workspace dirs):
+
+```bash
+bun run dev          # Start all workspaces in dev mode
+bun run dev:web      # Start web app only
+bun run build        # Build all workspaces
+bun run check-types  # TypeScript type checking
+bun run check        # Biome format + lint + auto-fix
+```
+
+### Adding Dependencies
+
+```bash
+bun add <pkg>                          # Root
+bun add --filter @merklepic/web <pkg>  # Specific workspace
+```
+
+Use `catalog:` in workspace `package.json` to reference shared versions from root catalog.
 
 ## UI Customization
 
-React web apps in this stack share shadcn/ui primitives through `packages/ui`.
+Shared components live in `packages/ui`:
 
-- Change design tokens and global styles in `packages/ui/src/styles/globals.css`
-- Update shared primitives in `packages/ui/src/components/*`
-- Adjust shadcn aliases or style config in `packages/ui/components.json` and `apps/web/components.json`
+- **Theme & colors**: `packages/ui/src/styles/globals.css`
+- **Components**: `packages/ui/src/components/*`
+- **Config**: `packages/ui/components.json`
 
-### Add more shared components
-
-Run this from the project root to add more primitives to the shared UI package:
+Add shared primitives:
 
 ```bash
-npx shadcn@latest add accordion dialog popover sheet table -c packages/ui
+npx shadcn@latest add accordion dialog popover -c packages/ui
 ```
 
-Import shared components like this:
+Import in app code:
 
 ```tsx
 import { Button } from "@merklepic/ui/components/button";
 ```
 
-### Add app-specific blocks
-
-If you want to add app-specific blocks instead of shared primitives, run the shadcn CLI from `apps/web`.
-
-## Git Hooks and Formatting
-
-- Format and lint fix: `bun run check`
-
-## Project Structure
+## Architecture
 
 ```
-merklepic/
-├── apps/
-│   └── web/         # Fullstack application (React + TanStack Start)
-├── packages/
-│   ├── ui/          # Shared shadcn/ui components and styles
+User → Wallet Extension → File Upload → Shelby Blob Registration → Aptos On-chain Tx
 ```
 
-## Available Scripts
+- **No server database** — Shelby handles storage, Aptos handles ownership/metadata
+- **TanStack Query** manages async state and blob polling
+- **Wallet address = user identity** — no separate auth system
 
-- `bun run dev`: Start all applications in development mode
-- `bun run build`: Build all applications
-- `bun run dev:web`: Start only the web application
-- `bun run check-types`: Check TypeScript types across all apps
-- `bun run check`: Run Biome formatting and linting
+## Documentation
+
+- Product spec: `docs/MerklePic_PRD.md`
+- AI context: `CLAUDE.md`

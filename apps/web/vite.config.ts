@@ -47,7 +47,9 @@ export default defineConfig({
 	plugins: [
 		tsconfigPaths(),
 		tailwindcss(),
-		tanstackStart(),
+		tanstackStart({
+			spa: { enabled: true },
+		}),
 		viteReact(),
 		serveClayWasm(),
 	],

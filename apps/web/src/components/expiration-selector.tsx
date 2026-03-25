@@ -12,7 +12,7 @@ export function ExpirationSelector({
 }: ExpirationSelectorProps) {
 	return (
 		<div className="flex flex-col gap-2">
-			<span className="font-pixel text-[8px] text-muted-foreground uppercase tracking-widest">
+			<span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">
 				Expires in
 			</span>
 			<div className="flex flex-wrap gap-2">
@@ -24,7 +24,7 @@ export function ExpirationSelector({
 							type="button"
 							onClick={() => onChange(option.days)}
 							className={cn(
-								"h-8 border-2 px-3 font-pixel text-[8px] tracking-wider transition-none",
+								"h-8 border-2 px-3 font-semibold text-xs tracking-wider transition-none",
 								"cursor-pointer rounded-none",
 								selected
 									? "border-accent-brand bg-accent-brand/15 text-accent-brand shadow-[0_0_8px_var(--accent-brand),2px_2px_0_0_var(--accent-brand)]"

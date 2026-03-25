@@ -110,10 +110,10 @@ export function UploadZone() {
 			{/* Disconnected overlay */}
 			{!connected && (
 				<div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 border-3 border-border bg-background/90">
-					<span className="font-pixel text-[8px] text-muted-foreground tracking-widest">
+					<span className="text-sm font-medium text-muted-foreground tracking-wide">
 						WALLET NOT CONNECTED
 					</span>
-					<span className="font-pixel text-[10px] text-accent-brand tracking-wider">
+					<span className="font-pixel text-sm text-accent-brand tracking-wider">
 						CONNECT WALLET TO UPLOAD
 					</span>
 				</div>
@@ -147,7 +147,7 @@ export function UploadZone() {
 							role="status"
 							aria-label="Uploading"
 						/>
-						<span className="font-pixel text-[10px] text-accent-brand tracking-widest">
+						<span className="font-pixel text-sm text-accent-brand tracking-widest">
 							UPLOADING...
 						</span>
 					</div>
@@ -157,10 +157,10 @@ export function UploadZone() {
 						<div className="flex w-full max-w-xs items-center gap-3 border-[2px] border-border bg-background p-3">
 							<ImageIcon size={20} className="shrink-0 text-accent-brand" />
 							<div className="flex min-w-0 flex-col">
-								<span className="truncate font-mono text-foreground text-xs">
+								<span className="truncate font-mono text-foreground text-sm">
 									{selectedFile.name}
 								</span>
-								<span className="font-mono text-[10px] text-muted-foreground">
+								<span className="font-mono text-xs text-muted-foreground">
 									{formatBytes(selectedFile.size)}
 								</span>
 							</div>
@@ -179,7 +179,7 @@ export function UploadZone() {
 									setFileError(null);
 									if (fileInputRef.current) fileInputRef.current.value = "";
 								}}
-								className="h-10 cursor-pointer rounded-none border-[2px] border-border bg-background px-4 font-pixel text-[8px] text-muted-foreground tracking-wider transition-none hover:border-destructive hover:text-destructive"
+								className="h-10 cursor-pointer rounded-none border-[2px] border-border bg-background px-4 font-semibold text-xs text-muted-foreground tracking-wider transition-none hover:border-destructive hover:text-destructive"
 							>
 								CANCEL
 							</button>
@@ -187,7 +187,7 @@ export function UploadZone() {
 								type="button"
 								onClick={handleUpload}
 								disabled={!connected || isPending}
-								className="h-10 cursor-pointer rounded-none border-[2px] border-accent-brand bg-accent-brand/15 px-6 font-pixel text-[8px] text-accent-brand tracking-wider shadow-[2px_2px_0_0_var(--accent-brand)] transition-none hover:bg-accent-brand/25 disabled:cursor-not-allowed disabled:opacity-40"
+								className="h-10 cursor-pointer rounded-none border-[2px] border-accent-brand bg-accent-brand/15 px-6 font-semibold text-xs text-accent-brand tracking-wider shadow-[2px_2px_0_0_var(--accent-brand)] transition-none hover:bg-accent-brand/25 disabled:cursor-not-allowed disabled:opacity-40"
 							>
 								UPLOAD
 							</button>
@@ -204,19 +204,19 @@ export function UploadZone() {
 							)}
 						/>
 						<div className="flex flex-col items-center gap-1">
-							<span className="font-pixel text-[10px] text-foreground tracking-widest">
+							<span className="font-pixel text-sm text-foreground tracking-widest">
 								DRAG &amp; DROP
 							</span>
-							<span className="font-vt323 text-base text-muted-foreground">
+							<span className="text-base text-muted-foreground">
 								or click to browse
 							</span>
 						</div>
-						<span className="font-mono text-[10px] text-muted-foreground/60">
+						<span className="text-xs text-muted-foreground/60">
 							PNG · JPG · GIF · WEBP · max 10MB
 						</span>
 
 						{fileError && (
-							<span className="font-pixel text-[8px] text-destructive tracking-wide">
+							<span className="text-sm font-medium text-destructive tracking-wide">
 								{fileError}
 							</span>
 						)}
@@ -224,7 +224,7 @@ export function UploadZone() {
 						<button
 							type="button"
 							onClick={() => fileInputRef.current?.click()}
-							className="h-9 cursor-pointer rounded-none border-[2px] border-border bg-background px-4 font-pixel text-[8px] text-foreground tracking-wider shadow-[2px_2px_0_0_oklch(0_0_0_/_50%)] transition-none hover:border-accent-brand hover:text-accent-brand"
+							className="h-9 cursor-pointer rounded-none border-[2px] border-border bg-background px-4 font-semibold text-xs text-foreground tracking-wider shadow-[2px_2px_0_0_oklch(0_0_0_/_50%)] transition-none hover:border-accent-brand hover:text-accent-brand"
 						>
 							BROWSE FILES
 						</button>

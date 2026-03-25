@@ -13,7 +13,7 @@ export default function Header() {
 		<header className="border-border border-b-[3px] bg-background">
 			<div className="flex items-center justify-between px-4 py-2">
 				{/* Logo */}
-				<span className="font-pixel text-accent-brand text-sm tracking-widest">
+				<span className="font-pixel text-accent-brand text-base tracking-widest">
 					MERKLEPIC
 				</span>
 
@@ -24,7 +24,7 @@ export default function Header() {
 							key={to}
 							to={to}
 							className={cn(
-								"font-mono text-muted-foreground text-xs transition-colors hover:text-foreground",
+								"text-muted-foreground text-sm transition-colors hover:text-foreground",
 								"[&.active]:text-accent-brand [&.active]:underline [&.active]:underline-offset-4",
 							)}
 						>

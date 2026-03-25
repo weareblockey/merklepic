@@ -41,10 +41,10 @@ export function FaucetBanner({
 			/>
 
 			<div className="flex-1">
-				<h3 className="font-pixel text-[8px] text-accent-warning tracking-wider">
+				<h3 className="font-pixel text-xs text-accent-warning tracking-wider">
 					NEED TOKENS?
 				</h3>
-				<p className="mt-1 font-vt text-[11px] text-muted-foreground">
+				<p className="mt-1 text-sm text-muted-foreground">
 					Claim from official faucets:
 				</p>
 				<div className="mt-2 flex flex-col gap-1.5">
@@ -53,7 +53,7 @@ export function FaucetBanner({
 							href={FAUCETS.apt}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="font-mono text-[9px] text-accent-info underline underline-offset-2 transition-colors hover:text-accent-brand"
+							className="font-mono text-xs text-accent-info underline underline-offset-2 transition-colors hover:text-accent-brand"
 						>
 							→ APT Faucet
 						</a>
@@ -63,7 +63,7 @@ export function FaucetBanner({
 							href={FAUCETS.shelbyUSD}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="font-mono text-[9px] text-accent-info underline underline-offset-2 transition-colors hover:text-accent-brand"
+							className="font-mono text-xs text-accent-info underline underline-offset-2 transition-colors hover:text-accent-brand"
 						>
 							→ ShelbyUSD Faucet
 						</a>

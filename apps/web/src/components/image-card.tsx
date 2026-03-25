@@ -87,7 +87,7 @@ export function ImageCard({
 					/* PENDING spinner overlay */
 					<div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background/80">
 						<div className="size-6 animate-spin border-2 border-accent-brand border-t-transparent" />
-						<span className="font-pixel text-[6px] text-muted-foreground">
+						<span className="text-xs font-medium text-muted-foreground">
 							PROCESSING...
 						</span>
 					</div>
@@ -106,7 +106,7 @@ export function ImageCard({
 			<div className="flex flex-col gap-2 p-3">
 				{/* Name */}
 				<p
-					className="font-[VT323] text-foreground text-sm leading-none"
+					className="font-medium text-foreground text-base leading-none"
 					title={displayName}
 				>
 					{truncateName(displayName)}
@@ -116,7 +116,7 @@ export function ImageCard({
 				<div className="flex items-center justify-between gap-2">
 					<span
 						className={cn(
-							"font-mono text-[9px] text-muted-foreground",
+							"font-mono text-xs text-muted-foreground",
 							isNearExpiry && "text-[oklch(0.7_0.15_85)]",
 						)}
 					>
@@ -125,7 +125,7 @@ export function ImageCard({
 					</span>
 					<span
 						className={cn(
-							"px-1.5 py-0.5 font-pixel text-[6px] uppercase leading-none",
+							"px-1.5 py-0.5 font-bold text-[10px] uppercase leading-none",
 							statusColors[status],
 						)}
 					>
@@ -134,7 +134,7 @@ export function ImageCard({
 				</div>
 
 				{/* File size */}
-				<p className="font-mono text-[9px] text-muted-foreground">
+				<p className="font-mono text-xs text-muted-foreground">
 					{formatBytes(blob.size)}
 				</p>
 
@@ -169,9 +169,9 @@ function ActionButton({
 			type="button"
 			onClick={onClick}
 			className={cn(
-				"border-[2px] px-1.5 py-0.5 font-pixel text-[6px] leading-none transition-colors",
+				"border-[2px] px-2.5 py-1 font-semibold text-xs leading-none transition-colors cursor-pointer",
 				variant === "destructive"
-					? "border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+					? "border-destructive text-destructive hover:bg-destructive hover:text-background"
 					: "border-border text-muted-foreground hover:border-accent-brand hover:text-accent-brand",
 			)}
 		>

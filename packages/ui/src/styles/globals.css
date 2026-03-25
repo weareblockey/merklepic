@@ -47,7 +47,7 @@
 }
 
 @theme inline {
-	--font-sans: "JetBrains Mono", "Press Start 2P", "VT323", monospace;
+	--font-sans: "Space Grotesk", "Inter", system-ui, sans-serif;
 	--font-pixel: "Press Start 2P", monospace;
 	--font-vt: "VT323", monospace;
 	--font-mono: "JetBrains Mono", monospace;

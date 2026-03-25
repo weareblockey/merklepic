@@ -28,7 +28,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 		],
 		links: [
 			{ rel: "stylesheet", href: appCss },
-			// Google Fonts: pixel art fonts
+			// Google Fonts: readable sans + pixel accent + mono
 			{ rel: "preconnect", href: "https://fonts.googleapis.com" },
 			{
 				rel: "preconnect",
@@ -37,7 +37,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 			},
 			{
 				rel: "stylesheet",
-				href: "https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=JetBrains+Mono:wght@400;500;700&display=swap",
+				href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Press+Start+2P&family=VT323&family=JetBrains+Mono:wght@400;500;700&display=swap",
 			},
 		],
 	}),

@@ -10,7 +10,7 @@ export function BalanceDisplay() {
 	if (!connected) return null;
 
 	return (
-		<div className="flex items-center gap-3 font-mono text-xs">
+		<div className="flex items-center gap-3 font-mono text-sm">
 			{aptBalance !== undefined && (
 				<span className="text-muted-foreground">
 					<span className="text-accent-brand">{aptBalance.toFixed(4)}</span>

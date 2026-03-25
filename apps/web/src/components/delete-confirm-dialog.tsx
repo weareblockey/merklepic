@@ -56,14 +56,14 @@ export function DeleteConfirmDialog({
 		<AlertDialog open={open} onOpenChange={onOpenChange}>
 			<AlertDialogContent className="border-[3px] border-destructive shadow-[4px_4px_0_0_oklch(0_0_0_/_60%)]">
 				<AlertDialogHeader>
-					<AlertDialogTitle className="font-pixel text-[10px] text-foreground tracking-wider">
+					<AlertDialogTitle className="font-pixel text-sm text-foreground tracking-wider">
 						DELETE IMAGE
 					</AlertDialogTitle>
 					<AlertDialogDescription className="flex flex-col gap-2 pt-2">
-						<span className="font-pixel text-[8px] text-muted-foreground">
+						<span className="text-sm text-muted-foreground">
 							THIS WILL REMOVE THE IMAGE FROM SHELBY NETWORK.
 						</span>
-						<span className="font-pixel text-[8px] text-muted-foreground">
+						<span className="text-sm text-muted-foreground">
 							THIS ACTION REQUIRES A TRANSACTION.
 						</span>
 					</AlertDialogDescription>
@@ -71,14 +71,14 @@ export function DeleteConfirmDialog({
 
 				<AlertDialogFooter className="gap-2">
 					<AlertDialogCancel
-						className="border-[2px] border-border font-pixel text-[8px]"
+						className="border-[2px] border-border font-semibold text-xs"
 						disabled={isPending}
 					>
 						CANCEL
 					</AlertDialogCancel>
 					<AlertDialogAction
 						variant="destructive"
-						className="border-[2px] border-destructive font-pixel text-[8px]"
+						className="border-[2px] border-destructive font-semibold text-xs"
 						disabled={isPending}
 						onClick={handleConfirm}
 					>

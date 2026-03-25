@@ -42,7 +42,7 @@ export function VerifyPanel({ blob, open, onOpenChange }: VerifyPanelProps) {
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogContent className="border-[3px] border-border shadow-[4px_4px_0_0_oklch(0_0_0_/_60%)] sm:max-w-sm">
 				<DialogHeader>
-					<DialogTitle className="font-pixel text-[10px] text-foreground tracking-wider">
+					<DialogTitle className="font-pixel text-sm text-foreground tracking-wider">
 						VERIFY IMAGE
 					</DialogTitle>
 				</DialogHeader>
@@ -67,7 +67,7 @@ export function VerifyPanel({ blob, open, onOpenChange }: VerifyPanelProps) {
 						/>
 						<span
 							className={cn(
-								"font-pixel text-[7px] tracking-wider",
+								"text-xs font-medium tracking-wider",
 								isVerified
 									? "text-[oklch(0.55_0.15_145)]"
 									: "text-muted-foreground",
@@ -81,12 +81,12 @@ export function VerifyPanel({ blob, open, onOpenChange }: VerifyPanelProps) {
 
 					{/* Merkle Root */}
 					<div className="flex flex-col gap-1.5">
-						<p className="font-pixel text-[7px] text-muted-foreground tracking-wider">
+						<p className="text-xs font-medium text-muted-foreground tracking-wider">
 							MERKLE ROOT
 						</p>
 						<div className="flex items-center gap-2">
 							<code
-								className="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap font-['JetBrains_Mono'] text-[9px] text-foreground"
+								className="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap font-mono text-xs text-foreground"
 								title={merkleHex}
 							>
 								{truncateHash(merkleHex)}
@@ -94,7 +94,7 @@ export function VerifyPanel({ blob, open, onOpenChange }: VerifyPanelProps) {
 							<button
 								type="button"
 								onClick={handleCopyHash}
-								className="shrink-0 border-[2px] border-border px-1.5 py-0.5 font-pixel text-[6px] text-muted-foreground transition-colors hover:border-accent-brand hover:text-accent-brand"
+								className="shrink-0 border-[2px] border-border px-1.5 py-0.5 font-semibold text-[10px] text-muted-foreground transition-colors hover:border-accent-brand hover:text-accent-brand"
 							>
 								COPY
 							</button>
@@ -123,10 +123,10 @@ export function VerifyPanel({ blob, open, onOpenChange }: VerifyPanelProps) {
 function InfoRow({ label, value }: { label: string; value: string }) {
 	return (
 		<div className="flex flex-col gap-0.5">
-			<span className="font-pixel text-[6px] text-muted-foreground tracking-wider">
+			<span className="text-[10px] font-medium text-muted-foreground tracking-wider">
 				{label}
 			</span>
-			<span className="font-mono text-[9px] text-foreground">{value}</span>
+			<span className="font-mono text-xs text-foreground">{value}</span>
 		</div>
 	);
 }

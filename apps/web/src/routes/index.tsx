@@ -51,7 +51,7 @@ function HomeComponent() {
 			)}
 
 			{/* Heading */}
-			<h1 className="text-center font-pixel text-accent-brand text-base leading-loose tracking-widest">
+			<h1 className="text-center font-pixel text-accent-brand text-xl leading-loose tracking-widest">
 				UPLOAD YOUR SNAP
 			</h1>
 
@@ -66,10 +66,10 @@ function HomeComponent() {
 						className="flex min-w-[140px] flex-1 flex-col items-center gap-2 border-[2px] border-border bg-card p-4 shadow-[4px_4px_0_0_oklch(0_0_0_/_50%)]"
 					>
 						<Icon size={24} className="text-accent-brand" />
-						<span className="text-center font-pixel text-[8px] text-foreground tracking-wider">
+						<span className="text-center font-semibold text-sm text-foreground tracking-wide">
 							{label}
 						</span>
-						<span className="text-center font-mono text-[10px] text-muted-foreground">
+						<span className="text-center text-sm text-muted-foreground">
 							{desc}
 						</span>
 					</div>

@@ -28,7 +28,7 @@ export function WalletSelectorModal({
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogContent className="border-3 border-border bg-card p-0 sm:max-w-xs">
 				<DialogHeader className="border-border border-b px-4 py-3">
-					<DialogTitle className="font-pixel text-foreground text-xs tracking-widest">
+					<DialogTitle className="font-pixel text-foreground text-sm tracking-widest">
 						SELECT WALLET
 					</DialogTitle>
 				</DialogHeader>
@@ -67,12 +67,12 @@ export function WalletSelectorModal({
 											"none";
 									}}
 								/>
-								<span className="flex-1 font-medium font-mono text-foreground text-xs">
+								<span className="flex-1 font-medium text-foreground text-sm">
 									{supportedWallet.name}
 								</span>
 								<span
 									className={cn(
-										"font-pixel text-[10px] tracking-wide",
+										"font-semibold text-xs tracking-wide",
 										isInstalled
 											? "text-accent-brand"
 											: "text-muted-foreground underline",

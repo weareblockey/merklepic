@@ -20,7 +20,7 @@ function GalleryPage() {
 	if (!connected || !account) {
 		return (
 			<main className="flex flex-col items-center justify-center gap-6 py-20">
-				<p className="font-pixel text-[10px] text-muted-foreground tracking-wider">
+				<p className="font-pixel text-sm text-muted-foreground tracking-wider">
 					CONNECT WALLET TO VIEW YOUR SNAPS
 				</p>
 			</main>
@@ -57,13 +57,13 @@ function GalleryContent({ walletAddress }: { walletAddress: string }) {
 	if (isError) {
 		return (
 			<main className="flex flex-col items-center justify-center gap-4 py-20">
-				<p className="font-pixel text-[10px] text-destructive tracking-wider">
+				<p className="font-pixel text-sm text-destructive tracking-wider">
 					FAILED TO LOAD SNAPS
 				</p>
 				<button
 					type="button"
 					onClick={() => refetch()}
-					className="border-[2px] border-border px-3 py-1.5 font-pixel text-[8px] text-muted-foreground transition-colors hover:border-accent-brand hover:text-accent-brand"
+					className="border-[2px] border-border px-3 py-1.5 font-semibold text-xs text-muted-foreground transition-colors hover:border-accent-brand hover:text-accent-brand"
 				>
 					RETRY
 				</button>
@@ -79,14 +79,14 @@ function GalleryContent({ walletAddress }: { walletAddress: string }) {
 	if (activeBlobs.length === 0) {
 		return (
 			<main className="flex flex-col items-center justify-center gap-6 py-20">
-				<p className="text-center font-pixel text-[10px] text-muted-foreground leading-loose tracking-wider">
+				<p className="text-center font-pixel text-sm text-muted-foreground leading-loose tracking-wider">
 					NO SNAPS YET.
 					<br />
 					UPLOAD YOUR FIRST IMAGE!
 				</p>
 				<Link
 					to="/"
-					className="border-[2px] border-accent-brand px-4 py-2 font-pixel text-[8px] text-accent-brand transition-colors hover:bg-accent-brand hover:text-background"
+					className="border-[2px] border-accent-brand px-4 py-2 font-semibold text-xs text-accent-brand transition-colors hover:bg-accent-brand hover:text-background"
 				>
 					UPLOAD NOW
 				</Link>
@@ -156,11 +156,11 @@ function GalleryContent({ walletAddress }: { walletAddress: string }) {
 function GalleryHeader({ count }: { count: number | null }) {
 	return (
 		<div className="mb-6 flex items-baseline gap-3">
-			<h1 className="font-pixel text-accent-brand text-sm tracking-widest">
+			<h1 className="font-pixel text-accent-brand text-base tracking-widest">
 				MY SNAPS
 			</h1>
 			{count !== null && (
-				<span className="font-mono text-[10px] text-muted-foreground">
+				<span className="font-mono text-sm text-muted-foreground">
 					{count} {count === 1 ? "image" : "images"}
 				</span>
 			)}

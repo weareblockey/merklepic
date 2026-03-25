@@ -1,3 +1,5 @@
+// Buffer polyfill must run before Aptos/Shelby SDK imports
+import "../polyfills";
 import { Network } from "@aptos-labs/ts-sdk";
 import { AptosWalletAdapterProvider } from "@aptos-labs/wallet-adapter-react";
 import { Toaster } from "@merklepic/ui/components/sonner";
@@ -53,8 +55,6 @@ function RootDocument() {
 		<html lang="en" className="dark">
 			<head>
 				<HeadContent />
-				{/* Buffer polyfill must load before Aptos/Shelby SDK modules */}
-				<script type="module" src="/src/polyfills.ts" />
 			</head>
 			<body>
 				<QueryClientProvider client={queryClient}>
